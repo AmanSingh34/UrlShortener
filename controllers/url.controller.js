@@ -13,7 +13,9 @@ export const generateShortId = async (req,res)=>{
         visitHistory:[]
     })
 
-    return res.status(200).json({shortId})
+    return res.render('Home',{
+        id:shortId
+    })
 
 }
 

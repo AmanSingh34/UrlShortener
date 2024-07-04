@@ -5,11 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .form{
+        padding: 20px;
+        margin: 50px auto;
+        width: 60%;
+        border: 1px solid rgb(160, 159, 159);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        background-color: #D9AFD9;
+        background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+
+
+        h2{
+            text-align: center;
+            font-size: 50px;
+            color: white;
+        }
+
+        div{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            label{
+                font-size: 15px;
+                font-weight: 500;
+            }
+
+            input{
+                outline: none;
+                border-radius: 5px;
+                padding: 10px;
+                outline: none;
+            }
+
+            button{
+                border: none;
+                padding: 10px 15px;
+                background-color: blue;
+                border-radius: 5px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+
+                &:hover{
+                    opacity: .8;
+                    color: white;
+                }
+
+                &:active{
+                    opacity: .5;
+                    color: black;
+                }
+            }
+        }
+    }
+</style>
 <body>
-    <h2>Hello Worldba</h2>
-    <% URL.forEach(url => { %>
-     <li><%= url.shortId %></li>
-    <% }) %>
-    
+<form action="/url" class="form" method="post">
+    <h2>URL Shortener</h2>
+    <div>
+        <label for="url">Paste your url: </label>
+        <input type="text" name="url" placeholder="http://www.example.com">
+        <button>Generate</button>
+    </div>
+    <% if (locals.id) { %>
+     <p>Your generated Url is: localhost:8001/url/<%= id %> </p>
+    <% } %>
+</form>
+
 </body>
 </html>
